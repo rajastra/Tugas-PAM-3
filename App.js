@@ -1,66 +1,61 @@
-import {
-  faCalendar,
-  faPlaneArrival,
-  faPlaneDeparture,
-} from "@fortawesome/free-solid-svg-icons";
-import React, { Fragment } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  Pressable,
-  TouchableHighlight,
-} from "react-native";
-import Background from "./components/Background";
+import * as React from "react";
+import Home from "./stacks/Home";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Detail from "./stacks/Detail";
 import Header from "./components/Header";
-import InputData from "./components/InputData";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faBars, faUser } from "@fortawesome/free-solid-svg-icons";
+import { StyleSheet, Text, View } from "react-native";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <Fragment>
-      <Background />
-      <View style={styles.backgroundBody}></View>
-      <Header />
-      <View style={styles.container}>
-        <View style={styles.form}>
-          <InputData label={"Lokasi keberangkatan"} icon={faPlaneDeparture} />
-          <InputData label={"Lokasi Tujuan"} icon={faPlaneArrival} />
-          <InputData label={"Tanggal keberangkatan"} icon={faCalendar} />
-          <TouchableHighlight style={{ marginTop: 20 }}>
-            <Button onPress={() => {}} title="Cari" color="#E47D24" />
-          </TouchableHighlight>
-        </View>
-        <View style={styles.footer}>
-          <Text>Copyright Raja Saputera 120140228</Text>
-        </View>
-      </View>
-    </Fragment>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: "Hilling.id",
+            headerStyle: {
+              backgroundColor: "#6FB23E",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitle: () => <Text style={styles.title}>Hiling.id</Text>,
+            headerLeft: () => (
+              <FontAwesomeIcon icon={faBars} style={styles.icon} />
+            ),
+            headerRight: () => (
+              <FontAwesomeIcon icon={faUser} style={styles.icon} />
+            ),
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen name="Details" component={Detail} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 40,
+  icon: {
+    color: "#fff",
+    width: 40,
+    height: 30,
+    padding: 10,
+    margin: 5,
   },
-  backgroundBody: {
-    position: "absolute",
-    backgroundColor: "#F0F0F0",
-    width: "100%",
-    height: "55%",
-    bottom: 0,
-    zIndex: -1,
-  },
-  form: {
-    marginTop: 30,
-    backgroundColor: "#fff",
-    padding: 20,
-    borderRadius: 10,
-    paddingBottom: 50,
-  },
-  footer: {
+  title: {
+    color: "#fff",
+    fontSize: 25,
+    fontWeight: "bold",
+    textAlign: "center",
     marginTop: 20,
-    alignItems: "center",
   },
 });

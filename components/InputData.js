@@ -27,12 +27,14 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
+    marginLeft: 10,
   },
   formLabel: {
     marginBottom: 5,
   },
   formInput: {
     flexDirection: "row",
+    alignItems: "center",
     boxShadow: "0 0 4px rgba(0,0,0,0.3)",
     borderRadius: 5,
   },
