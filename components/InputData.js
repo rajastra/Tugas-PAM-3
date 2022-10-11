@@ -1,11 +1,8 @@
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faPlaneDeparture } from "@fortawesome/free-solid-svg-icons";
 
 const InputData = (props) => {
-  const [inputField, setInputField] = React.useState("");
-
   return (
     <View style={styles.formGroup}>
       <Text style={styles.formLabel}>{props.label}</Text>
@@ -13,8 +10,9 @@ const InputData = (props) => {
         <FontAwesomeIcon icon={props.icon} style={styles.icon} />
         <TextInput
           style={styles.input}
-          onChangeText={setInputField}
-          value={inputField}
+          onChangeText={props.onChangeText}
+          value={props.value}
+          placeholder={props.placeholder}
         />
       </View>
     </View>
@@ -23,19 +21,27 @@ const InputData = (props) => {
 
 const styles = StyleSheet.create({
   formGroup: {
-    marginBottom: 20,
+    marginBottom: 30,
   },
   input: {
     flex: 1,
     marginLeft: 10,
+    fontSize: 16,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
   },
   formLabel: {
-    marginBottom: 5,
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 10,
   },
   formInput: {
     flexDirection: "row",
     alignItems: "center",
-    boxShadow: "0 0 4px rgba(0,0,0,0.3)",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
     borderRadius: 5,
   },
   icon: {

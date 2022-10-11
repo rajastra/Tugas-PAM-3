@@ -3,7 +3,7 @@ import {
   faPlaneArrival,
   faPlaneDeparture,
 } from "@fortawesome/free-solid-svg-icons";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import {
   View,
   Text,
@@ -12,30 +12,56 @@ import {
   TouchableHighlight,
 } from "react-native";
 import Background from "../components/Background";
-import Header from "../components/Header";
 import InputData from "../components/InputData";
 
 export default function Home({ navigation }) {
+  const [keberangkatan, setKeberangkatan] = useState("");
+  const [tujuan, setTujuan] = useState("");
+  const [tanggal, setTanggal] = useState("");
+
   return (
     <Fragment>
       <Background />
       <View style={styles.backgroundBody}></View>
-      {/* <Header /> */}
       <View style={styles.container}>
         <View style={styles.form}>
-          <InputData label={"Lokasi keberangkatan"} icon={faPlaneDeparture} />
-          <InputData label={"Lokasi Tujuan"} icon={faPlaneArrival} />
-          <InputData label={"Tanggal keberangkatan"} icon={faCalendar} />
-          <TouchableHighlight style={{ marginTop: 20 }}>
+          <InputData
+            label={"Lokasi keberangkatan"}
+            icon={faPlaneDeparture}
+            value={keberangkatan}
+            onChangeText={(text) => setKeberangkatan(text)}
+            placeholder={"Masukan Lokasi keberangkatan"}
+          />
+          <InputData
+            label={"Lokasi Tujuan"}
+            icon={faPlaneArrival}
+            value={tujuan}
+            onChangeText={(text) => setTujuan(text)}
+            placeholder={"Masukan Lokasi Tujuan"}
+          />
+          <InputData
+            label={"Tanggal keberangkatan"}
+            icon={faCalendar}
+            value={tanggal}
+            onChangeText={(text) => setTanggal(text)}
+            placeholder={"Masukan Tanggal keberangkatan"}
+          />
+          <TouchableHighlight style={{ marginTop: 10 }}>
             <Button
-              onPress={() => navigation.push("Details")}
+              onPress={() =>
+                navigation.push("Details", {
+                  keberangkatan,
+                  tujuan,
+                  tanggal,
+                })
+              }
               title="Cari"
               color="#E47D24"
             />
           </TouchableHighlight>
         </View>
         <View style={styles.footer}>
-          <Text>Copyright Raja Saputera 120140228</Text>
+          <Text>Copyright hiling hiling apaan</Text>
         </View>
       </View>
     </Fragment>
@@ -45,7 +71,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 40,
+    paddingHorizontal: 20,
   },
   backgroundBody: {
     position: "absolute",
@@ -64,7 +90,10 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
   },
   footer: {
-    marginTop: 20,
+    marginTop: 50,
     alignItems: "center",
+  },
+  datePickerStyle: {
+    width: 230,
   },
 });

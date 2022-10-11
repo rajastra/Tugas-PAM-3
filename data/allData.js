@@ -10,8 +10,18 @@ export const jadwal = [
 export const maskapai = [
   {
     maskapai_id: 1,
-    maskapai_nama: "Garuda Indonesia",
-    maskapai_logo: "https://www.garuda-indonesia.com/id/id/images/logo.png",
+    maskapai_nama: "Elang",
+    maskapai_logo: "",
+  },
+  {
+    maskapai_id: 2,
+    maskapai_nama: "Tapis Air",
+    maskapai_logo: "",
+  },
+  {
+    maskapai_id: 3,
+    maskapai_nama: "Majapahit Air",
+    maskapai_logo: "",
   },
 ];
 

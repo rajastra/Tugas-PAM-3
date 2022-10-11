@@ -3,14 +3,13 @@ import Home from "./stacks/Home";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Detail from "./stacks/Detail";
-import Header from "./components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 import { StyleSheet, Text, View } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default function App({ navigation }) {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -37,7 +36,26 @@ export default function App() {
             headerShadowVisible: false,
           }}
         />
-        <Stack.Screen name="Details" component={Detail} />
+        <Stack.Screen
+          name="Details"
+          component={Detail}
+          options={{
+            title: "Hilling.id",
+            headerStyle: {
+              backgroundColor: "#6FB23E",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitle: () => <Text style={styles.title}>Hiling.id</Text>,
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+            headerRight: () => (
+              <FontAwesomeIcon icon={faUser} style={styles.icon} />
+            ),
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -56,6 +74,5 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     textAlign: "center",
-    marginTop: 20,
   },
 });
