@@ -14,7 +14,7 @@ import {
 import Background from "../components/Background";
 import InputData from "../components/InputData";
 
-export default function Home({ navigation }) {
+const Home = ({ navigation }) => {
   const [keberangkatan, setKeberangkatan] = useState("");
   const [tujuan, setTujuan] = useState("");
   const [tanggal, setTanggal] = useState("");
@@ -66,7 +66,9 @@ export default function Home({ navigation }) {
       </View>
     </Fragment>
   );
-}
+};
+
+export default Home;
 
 const styles = StyleSheet.create({
   container: {

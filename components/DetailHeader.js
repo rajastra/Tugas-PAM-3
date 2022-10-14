@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 
-export default function DetailHeader(props) {
+const DetailHeader = (props) => {
   return (
     <View style={styles.detailHeader}>
       <Text style={styles.font}>Hasil Pencarian Penerbangan</Text>
@@ -10,7 +10,7 @@ export default function DetailHeader(props) {
       </Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   detailHeader: {
@@ -28,3 +28,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
+export default DetailHeader;

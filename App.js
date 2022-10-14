@@ -9,7 +9,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
-export default function App({ navigation }) {
+const App = ({ navigation }) => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -59,7 +59,8 @@ export default function App({ navigation }) {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+export default App;
 
 const styles = StyleSheet.create({
   icon: {

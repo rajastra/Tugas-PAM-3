@@ -2,8 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faPlaneUp } from "@fortawesome/free-solid-svg-icons";
-
-export default function DetailElement(props) {
+const DetailElement = (props) => {
   return (
     <View style={styles.detailBox}>
       <View style={styles.lokasi}>
@@ -38,7 +37,9 @@ export default function DetailElement(props) {
       </View>
     </View>
   );
-}
+};
+
+export default DetailElement;
 
 const styles = StyleSheet.create({
   detailBox: {
