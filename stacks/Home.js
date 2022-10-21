@@ -61,7 +61,7 @@ const Home = ({ navigation }) => {
           </TouchableHighlight>
         </View>
         <View style={styles.footer}>
-          <Text>Copyright hiling hiling apaan</Text>
+          <Text>Copyright Raja Saputera- 120140228</Text>
         </View>
       </View>
     </Fragment>
